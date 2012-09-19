@@ -1,0 +1,21 @@
+doctype html
+html
+	head
+		title
+		= stylesheet_link_tag 		"application", :media => "all"
+		= javascript_include_tag 	"application"
+		= csrf_meta_tags
+
+	body
+		.upper-nav
+			.container
+				.row
+					.span2 facebook like
+					.span2.offset7 change language
+		.container
+			.row
+				.topo.span6.offset6
+					ul.nav.nav-pills
+						- for item in ["Home", "Discover", "Collection", "Gallery", "Where to buy", "Contact"] do
+							li= link_to item, "#"
+			= yield
