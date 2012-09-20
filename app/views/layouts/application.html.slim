@@ -11,11 +11,20 @@ html
 			.container
 				.row
 					.span2 facebook like
-					.span2.offset7 change language
-		.container
+					.pull-right change language
+		.main.container
 			.row
-				.topo.span6.offset6
-					ul.nav.nav-pills
+				.topo.span12
+					= link_to image_tag("logo-artemys.png"), "/"
+					ul.menu.nav.nav-pills.pull-right
 						- for item in ["Home", "Discover", "Collection", "Gallery", "Where to buy", "Contact"] do
 							li= link_to item, "#"
-			= yield
+			.conteudo
+				= yield
+
+			.footer
+				.container
+					= link_to image_tag("logo-artemys-short.png"), "/"
+					ul.nav.nav-pills.pull-right
+						- for item in ["Be a reseller", "Where to buy", "Contact"]
+							li= link_to item, "#"
