@@ -1,4 +1,22 @@
-.row
-	.span12
-		h1 home
-		p Find me in app/views/pages/home.html.slim
+.container
+	.row
+		#carousel-home.carousel.slide.span12
+			.carousel-inner
+				- @first = true
+				- 5.times do
+					.item class=("active" if @first)
+						- @first = false
+						= image_tag "//placehold.it/940x300"
+						.carousel-caption
+							markdown:
+								#### Vem um título aqui
+								e logo em seguida um texto
+			= link_to "‹", "#carousel-home", "data-slide" => "prev", class: "carousel-control left"
+			= link_to "›", "#carousel-home", "data-slide" => "next", class: "carousel-control right"
+	
+	.row
+		.span12
+			ul.thumbnails
+				- 4.times do
+					li.span3
+						= link_to image_tag("//placehold.it/220x180"), "#", class: "thumbnail"

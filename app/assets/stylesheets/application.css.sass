@@ -1,0 +1,69 @@
+//=require "twitter/bootstrap"
+@import "bourbon"
+
+@import url("http://fonts.googleapis.com/css?family=Open+Sans")
+@import url("http://fonts.googleapis.com/css?family=Allura")
+
+$marrom: #5a3c16
+$marrom_escuro: #4c3212
+$marrom_claro: #826333
+$areia: #bb9c5b
+$branco: #fff
+$preto: #000
+
+$tipo_corpo: "Open Sans"
+$tipo_titulo: "Allura"
+
+html	
+	:background-color $marrom
+
+body
+	:background-color transparent
+	:font normal normal 12px/1.3 $tipo_corpo
+	:color #fff
+
+	a 
+		:color $branco
+
+.upper-nav
+	:background-color $marrom_escuro
+	:padding 10px
+
+.topo
+	:margin-bottom 30px
+
+.menu
+	:margin-top 70px
+
+	li a
+		:background-color $marrom_escuro
+		:font-weight bold
+		:font-size 14px
+		:text-transform uppercase
+
+.menu, .menu-footer
+	li a:hover
+		:background-color $areia
+		:color $marrom_escuro
+			
+
+.main
+	:padding 20px 0px
+
+.conteudo
+	:background-color $branco
+	:color $preto
+	:min-height 400px
+
+.footer
+	:padding 20px 0px
+	:background-color $marrom_escuro
+	:border-top 1px solid $marrom_claro
+
+.breadcrumb
+	:background-color transparent
+	:margin-bottom -40px
+	li, li.active 
+		:font normal normal normal 100px/1 $tipo_titulo
+		:color $branco
+		:text-shadow 1px 1px 1px $preto
