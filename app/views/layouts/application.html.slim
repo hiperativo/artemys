@@ -5,7 +5,6 @@ html
 		= stylesheet_link_tag 		"application", :media => "all"
 		= javascript_include_tag 	"application"
 		= csrf_meta_tags
-		link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'
 
 	body
 		.upper-nav
@@ -13,19 +12,23 @@ html
 				.row
 					.span2 facebook like
 					.pull-right change language
-		.main.container
+		.topo.container
 			.row
-				.topo.span12
+				.span12
 					= link_to image_tag("logo-artemys.png"), "/"
 					ul.menu.nav.nav-pills.pull-right
-						- for item in ["Home", "Discover", "Collection", "Gallery", "Where to buy", "Contact"] do
-							li= link_to item, "#"
-			.conteudo
-				= yield
+						- for item in menu_items do
+							li= link_to item, item.parameterize
+		- unless params[:action] == "home"
+			.container
+				ul.breadcrumb
+					li.active= params[:action].titleize
+		
+		= yield
 
-			.footer
-				.container
-					= link_to image_tag("logo-artemys-short.png"), "/"
-					ul.nav.nav-pills.pull-right
-						- for item in ["Be a reseller", "Where to buy", "Contact"]
-							li= link_to item, "#"
+		.footer
+			.container
+				= link_to image_tag("logo-artemys-short.png"), "/"
+				ul.menu-footer.nav.nav-pills.pull-right
+					- for item in ["Be a reseller", "Where to buy", "Contact"]
+						li= link_to item, item.parameterize
