@@ -1,4 +1,8 @@
 Artemys::Application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
+  devise_for :users
+
   get "gallery/index"
 
 	match "be-a-reseller" => "pages#be_a_reseller"

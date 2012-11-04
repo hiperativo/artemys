@@ -9,10 +9,15 @@ gem 'pg'
 gem 'thin'
 gem 'slim-rails'
 gem 'bourbon'
-gem 'anjlab-bootstrap-rails', '>= 2.1', :require => 'bootstrap-rails'
 gem 'bluecloth'
 gem 'cambelt'
 gem 'simple_form'
+gem 'country_select'
+gem 'rails_admin'
+gem 'fog'
+gem 'rmagick'
+gem 'carrierwave'
+gem 'maruku'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -42,3 +47,6 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+
+gem "devise"

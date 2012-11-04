@@ -1,4 +1,22 @@
+- @cities = ["São Paulo", "Rio de Janeiro", "Alagoas"]
+- @states = ["Maceió", "Rio Grande do Sul"]
+
 .conteudo.container.well
 	.row
+		.span3
+			h3 Quick Search
+			= simple_form_for :location do |f|
+				= f.input :country, collection: %w"Venezuela USA"
+				= f.input :state, input_html:{ class: "typeahead", data: {source: @cities, provide: "typeahead", minLength: 3} }
+				= f.input :city, input_html:{ class: "typeahead", data: {source:  @states, provide: "typeahead"} }
 		.span5
-			
+			= image_tag "//placehold.it/#{60*5+20*4}"
+		.span4
+			h3 Places
+			ul.thumbnails
+				- 3.times do
+					li.span4
+						.thumbnail
+							.caption
+								h4 Nome de um lugar
+								p Endereço de um lugar

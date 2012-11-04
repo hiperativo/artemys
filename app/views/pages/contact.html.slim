@@ -1,4 +1,20 @@
 .conteudo.container.well
 	.row
-		.span12
-			h1 Todo
+		.span6
+			= simple_form_for Contact.new, url: "/send", class: "form-horizontal" do |f|
+				= f.input :name, 	input_html:{class: "span6"}
+				= f.input :email, 	input_html:{class: "span6"}
+				= f.input :country, input_html:{class: "span6"}
+				= f.input :subject, input_html:{class: "span6"}
+				= f.input :message, input_html:{class: "span6", rows: 3}
+				= f.submit "Submit", class: "btn btn-primary btn-large span3 pull-right"
+
+		.span6
+			.well
+				h3 Stay Connected
+				- 3.times do
+					.media
+						= link_to "#", class: "pull-left" do
+							= image_tag "//placehold.it/48", class: "media-object"
+						.media-body
+							| facebook.com/artemys
