@@ -11,6 +11,9 @@ gem 'slim-rails'
 gem 'bourbon'
 gem 'anjlab-bootstrap-rails', '>= 2.1', :require => 'bootstrap-rails'
 gem 'bluecloth'
+gem 'cambelt'
+gem 'simple_form'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
