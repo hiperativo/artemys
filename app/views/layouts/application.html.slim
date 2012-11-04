@@ -10,8 +10,16 @@ html
 		.upper-nav
 			.container
 				.row
-					.span2 facebook like
-					.pull-right change language
+					.fb-like.span2 data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="arial"
+					
+					.dropdown.pull-right
+						= link_to "#", class: "btn btn-inverse btn-mini dropdown-toggle", data:{toggle:"dropdown"} do
+							| Change language
+							span.caret
+						ul.dropdown-menu
+							li= link_to "Venezuela"
+							li= link_to "USA"
+
 		.topo.container
 			.row
 				.span12
@@ -26,7 +34,7 @@ html
 						h2= @title || params[:action].titleize
 		
 		= yield
-
+		= render partial: "social/fb_root"
 		.footer
 			.container
 				= link_to image_tag("logo-artemys-short.png"), "/"

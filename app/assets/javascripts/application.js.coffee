@@ -1,5 +1,6 @@
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
+//= require bootstrap
+
 $(".carousel").carousel
 	interval: 1000
