@@ -1,4 +1,14 @@
+- @texto = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mauris dolor, cursus sit amet fermentum id, dignissim a leo. Suspendisse ut tellus velit. Pellentesque non pretium felis. Pellentesque tellus nulla, pellentesque id tempor eu, interdum vitae metus. Morbi quis dolor est, in lobortis est. Sed dolor dolor, cursus consectetur aliquam sed, ultricies sed ipsum. Curabitur eu dictum dolor.";
 .conteudo.container.well
+	- 2.times do
+		.row
+			- 4.times do
+				.span3
+					h3 Título
+					= @texto
+					= link_to "Saiba mais", "#", :class => "btn btn-primary"
 	.row
-		.span12
-			h1 Todo
+		.span6
+			= link_to "Press releases", "#", :class => "btn btn-block btn-large"
+		.span6
+			= link_to "Know the pieces", "#", :class => "btn btn-block btn-large"

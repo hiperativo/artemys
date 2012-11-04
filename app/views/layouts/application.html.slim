@@ -18,11 +18,12 @@ html
 					= link_to image_tag("logo-artemys.png"), "/"
 					ul.menu.nav.nav-pills.pull-right
 						- for item in menu_items do
-							li= link_to item, item.parameterize
+							li= link_to item, "/#{item.parameterize}"
 		- unless params[:action] == "home"
 			.container
 				ul.breadcrumb
-					li.active= params[:action].titleize
+					li.active
+						h2= @title || params[:action].titleize
 		
 		= yield
 
