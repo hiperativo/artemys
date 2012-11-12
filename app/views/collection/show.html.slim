@@ -1,0 +1,16 @@
+- @title = "Collections"
+.conteudo.container.well
+	.row
+		.span3
+			.well
+				ul.nav.nav-list
+					li.nav-header Categorias
+					
+					- for category in Category.all do
+						li= link_to category.title, params.merge(category: category.id)
+		.span9
+			ul.thumbnails
+				- for piece in Piece.all do
+					li.span3
+						.thumbnail
+							= image_tag piece.image_url
