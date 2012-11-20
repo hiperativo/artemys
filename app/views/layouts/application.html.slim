@@ -17,8 +17,8 @@ html
 							| Change language
 							span.caret
 						ul.dropdown-menu
-							li= link_to "Venezuela"
-							li= link_to "USA"
+							li= link_to "Venezuela", params.merge(language:"es-VE")
+							li= link_to "USA", params.merge(language:"en")
 
 		.topo.container
 			.row
@@ -26,12 +26,15 @@ html
 					= link_to image_tag("logo-artemys.png"), "/"
 					ul.menu.nav.nav-pills.pull-right
 						- for item in menu_items do
-							li= link_to item, "/#{item.parameterize}"
+							li= link_to (t "menu.#{item.underscore}"), "/#{item.parameterize}"
 		- unless params[:action] == "home"
 			.container
 				ul.breadcrumb
 					li.active
-						h2= @title || params[:action].titleize
+						- unless @title.nil? 
+							h2= t "titulo.#{@title.underscore}" 
+						- else
+							= params[:action].titleize
 		
 		= yield
 		= render partial: "social/fb_root"
