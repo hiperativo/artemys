@@ -2,21 +2,15 @@
 	.row
 		#carousel-home.carousel.slide.span12
 			.carousel-inner
-				- @first = true
-				- 5.times do
-					.item class=("active" if @first)
-						- @first = false
-						= image_tag "//placehold.it/940x300"
-						.carousel-caption
-							markdown:
-								#### Vem um título aqui
-								e logo em seguida um texto
+				- for banner in %w"Dia Noite Natureza"
+					.item class="#{"active" if banner == "Dia"}"
+						= image_tag "banner-#{banner.parameterize}.png"
 			= link_to "‹", "#carousel-home", "data-slide" => "prev", class: "carousel-control left"
 			= link_to "›", "#carousel-home", "data-slide" => "next", class: "carousel-control right"
 	
 	.row
 		.span12
 			ul.thumbnails
-				- 4.times do
+				- for logo in ["Latitud Sur", "We Care About the Nature", "Svarovski", "American Model Venezuela"]
 					li.span3
-						= link_to image_tag("//placehold.it/220x180"), "#", class: "thumbnail"
+						= image_tag "logo-#{logo.parameterize}.png"

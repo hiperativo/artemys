@@ -11,7 +11,6 @@ html
 			.container
 				.row
 					.fb-like.span2 data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="arial"
-					
 					.dropdown.pull-right
 						= link_to "#", class: "btn btn-inverse btn-mini dropdown-toggle", data:{toggle:"dropdown"} do
 							| Change language
@@ -35,7 +34,7 @@ html
 							h2= t "titulo.#{@title.underscore}" 
 						- else
 							= params[:action].titleize
-		
+
 		= yield
 		= render partial: "social/fb_root"
 		.footer

@@ -1,14 +1,30 @@
-- @texto = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mauris dolor, cursus sit amet fermentum id, dignissim a leo. Suspendisse ut tellus velit. Pellentesque non pretium felis. Pellentesque tellus nulla, pellentesque id tempor eu, interdum vitae metus. Morbi quis dolor est, in lobortis est. Sed dolor dolor, cursus consectetur aliquam sed, ultricies sed ipsum. Curabitur eu dictum dolor.";
 .conteudo.container.well
-	- 2.times do
-		.row
-			- 4.times do
-				.span3
-					h3 Título
-					= @texto
-					= link_to "Saiba mais", "#", :class => "btn btn-primary"
-	.row
-		.span6
-			= link_to "Press releases", "#", :class => "btn btn-block btn-large"
-		.span6
-			= link_to "Know the pieces", "#", :class => "btn btn-block btn-large"
+	.span4
+		.box-brown style="height: 320px;"
+			h3 Discover Artemys
+			h6 Jewels have always kindled dreams in women. Godesses, Queens, Empresses would flaunt them with a great relish, and so, nowadays, than use natural jewelry!
+			p Seductive designs full of glamour to make any woman more beautiful. The Artemys line of products offers innovative designs: rings, pendants, necklaces, bracelets, bangles, end charm soon to become irreplaceble to all women.
+			.readmore style="top:18px;"
+				a href="#"
+			
+	.span4
+		.box-brown
+			h3 Autenticity Certificate
+			p The pieces has been created with natural materials in any form without staining de plant material that has been developed.
+			.readmore
+				a href="#"
+			br.clearfix
+		.box-beige
+			h3 Press Releases
+			p Here you see the contents unique Artemys which was broadcast on major magazines and newspapers worldwide.
+			.readmore
+				a href="#"
+
+	.span4
+		.box-brown
+			h3 Primary Care
+			p
+				| The Artemys Natural Jewelry was made with truly natural golden colored thread.
+				| The metallic parts was made using hipoalergenic until 10 -micron 18- carat gold plating to ensure the quality.
+			.readmore
+				a href="#"
