@@ -5,7 +5,7 @@ Artemys::Application.routes.draw do
 	resources :collection
 	match "be-a-reseller" => "pages#be_a_reseller"
 	match "where-to-buy" => "pages#where_to_buy"
-	match "gallery" => "gallery#index"
+	match "gallery" => "media#index"
 	match ":action" => "pages"
 	root :to => "pages#home"
 end
