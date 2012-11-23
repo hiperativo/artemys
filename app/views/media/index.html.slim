@@ -10,6 +10,8 @@
 						
 						- for category in @collection.pieces.unique_categories do
 							li= link_to category.title, params.merge(category: category.title)
+
+
 			.gallery.span9
 				ul.thumbnails
 					- for piece in @pieces do
