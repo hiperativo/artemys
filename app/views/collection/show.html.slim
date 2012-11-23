@@ -6,14 +6,14 @@
 				.well
 					ul.nav.nav-list
 						li.nav-header Categorias
-						li= link_to "Todas", params.merge(category: nil)
+						li= link_to "Todas", params.merge(category: nil), class: "category-selector"
 						
 						- for category in @collection.pieces.unique_categories do
-							li= link_to category.title, params.merge(category: category.title)
+							li= link_to category.title, params.merge(category: category.title), class: "category-selector"
 			.gallery.span9
 				ul.thumbnails
 					- for piece in @pieces do
-						li.span3
+						li.span3 data-category="#{piece.category.title}"
 							.thumbnail
 								= link_to image_tag(piece.image_url :small), piece.image_url(:big), data: {lightbox: true}
 
