@@ -2,7 +2,7 @@
 	.row
 		#carousel-home.carousel.slide.span12
 			.carousel-inner
-				- for banner in %w"Dia Noite Natureza"
+				- for banner in %w"Natureza Dia Noite"
 					.item class="#{"active" if banner == "Dia"}"
 						= image_tag "banner-#{banner.parameterize}.png"
 			= link_to "‹", "#carousel-home", "data-slide" => "prev", class: "carousel-control left"
@@ -13,4 +13,4 @@
 			ul.thumbnails
 				- for logo in ["Latitud Sur", "We Care About the Nature", "Svarovski", "American Model Venezuela"]
 					li.span3
-						= image_tag "logo-#{logo.parameterize}.png"
+						= image_tag "logo-#{logo.parameterize}.png
