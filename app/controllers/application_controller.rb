@@ -7,4 +7,5 @@ class ApplicationController < ActionController::Base
 			I18n.locale = params[:language]
 		end
 	end
+
 end

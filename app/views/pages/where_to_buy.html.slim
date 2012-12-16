@@ -1,16 +1,17 @@
-- @cities = ["São Paulo", "Rio de Janeiro", "Alagoas"]
-- @states = ["Maceió", "Rio Grande do Sul"]
+= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyCiTZFrg9Mn1ZpMp_FiI3631vnQbf6xzkM&sensor=true"
 
 .conteudo.container.well
 	.row
 		.span3
-			h3 Quick Search
-			= simple_form_for :location do |f|
-				= f.input :country, collection: %w"Venezuela USA"
-				= f.input :state, input_html:{ class: "typeahead", data: {source: @cities, provide: "typeahead", minLength: 3} }
-				= f.input :city, input_html:{ class: "typeahead", data: {source:  @states, provide: "typeahead"} }
-		.span5
-			= image_tag "//placehold.it/#{60*5+20*4}"
+			form.search-map action="/"
+				h3 Quick Search
+				= simple_form_for :location do |f|
+					= f.input :country, collection: ["Venezuela"], include_blank: false
+					= f.input :state, collection: @states.keys
+					= f.input :city, collection: ["Select state first"]
+					/ = f.submit
+		.span5 style="height:380px;width:380px"
+			.map style="height:100%;width:100%"
 		.span4
 			h3 Places
 			ul.thumbnails

@@ -10,7 +10,16 @@ html
 		.upper-nav
 			.container
 				.row
+					
+					.span1
+						= link_to "https://twitter.com/Artemys_joyas", class:"twitter-follow-button", data:{"show-count"=>false, lang: "es", "show-screen-name"=> false} do 
+							| Seguir a @Artemys_joyas
+					javascript:
+						!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+
+
 					.fb-like.span2 data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="arial"
+
 					.dropdown.pull-right
 						= link_to "#", class: "btn btn-inverse btn-mini dropdown-toggle", data:{toggle:"dropdown"} do
 							| Change language

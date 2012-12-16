@@ -17,7 +17,7 @@
 					- for piece in @pieces do
 						li.span3 data-category="#{piece.category.title}"
 							.thumbnail
-								= link_to image_tag(piece.image_url :small), piece.image_url(:big), data: {lightbox: true}
+								= link_to image_tag(piece.image_url :small, class: "img-round"), piece.image_url(:big), data: {lightbox: true}
 
 		- else 
 			.span12

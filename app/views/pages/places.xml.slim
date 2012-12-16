@@ -1,0 +1,21 @@
+| <?xml version="1.0"?>
+| <?xml-stylesheet href="/eqcenter/catalogs/rssxsl.php?feed=eqs7day-M5.xml" type="text/xsl" media="screen"?>
+
+rss version="2.0" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:dc="http://purl.org/dc/elements/1.1/"
+	channel
+		title Artemys Stores Locations
+		description List based on excel spreadsheet
+		link http://www.artemys.com
+		dc:publisher hiperativo.co
+		pubDate 1/12/12
+
+	- for store in @lojas_venezuela
+		- unless store["tienda"].blank? or store["address"].blank?
+			item
+				pubDate 1/12/12
+				title= store["tienda"]
+				description= "Located in #{store["local"]} - #{store["Address"]}"
+				- @coords = Geocoder.coordinates "#{store["address"]}, #{store["city"]}, #{store["state"]}, Venezuela"
+				- if @coords
+					geo:lat= @coords[0]
+					geo:long= @coords[1]
