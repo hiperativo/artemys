@@ -13,7 +13,7 @@ class PagesController < ApplicationController
 	end
 
 	def where_to_buy
-		@lojas_venezuela = SmarterCSV.process (Rails.root.join "app", "assets", "csv", "lojas-venezuela.csv"), { col_sep:';'}
+		@lojas_venezuela ||= SmarterCSV.process (Rails.root.join "app", "assets", "csv", "lojas-venezuela.csv"), { col_sep:';'}
 		@states, @cities = {}
 		for store in @lojas_venezuela
 			unless @states[store[:state]]
@@ -27,7 +27,7 @@ class PagesController < ApplicationController
 	end
 	
 	def places
-		@lojas_venezuela = SmarterCSV.process (Rails.root.join "app", "assets", "csv", "lojas-venezuela.csv"), { col_sep:';'}
+		@lojas_venezuela ||= SmarterCSV.process (Rails.root.join "app", "assets", "csv", "lojas-venezuela.csv"), { col_sep:';'}
 		
 		@states, @cities = {}
 		for store in @lojas_venezuela
