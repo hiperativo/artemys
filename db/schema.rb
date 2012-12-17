@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121122133943) do
+ActiveRecord::Schema.define(:version => 20121217205650) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -63,6 +63,17 @@ ActiveRecord::Schema.define(:version => 20121122133943) do
     t.datetime "updated_at",    :null => false
     t.integer  "collection_id"
     t.integer  "category_id"
+  end
+
+  create_table "places", :force => true do |t|
+    t.string   "country"
+    t.string   "state"
+    t.string   "city"
+    t.string   "store"
+    t.string   "localization"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "address"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
