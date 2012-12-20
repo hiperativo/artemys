@@ -7,17 +7,15 @@
 				h3 Quick Search
 				= simple_form_for :location do |f|
 					= f.input :country, collection: ["Venezuela"], include_blank: false
-					= f.input :state, collection: @states.keys
+					= f.input :state, collection: @states
 					= f.input :city, collection: ["Select state first"]
-					/ = f.submit
 		.span5 style="height:380px;width:380px"
 			.map style="height:100%;width:100%"
 		.span4
 			h3 Places
-			ul.thumbnails
-				- 3.times do
-					li.span4
-						.thumbnail
-							.caption
-								h4 Nome de um lugar
-								p Endereço de um lugar
+			ul.thumbnails.places
+				li.span4.place
+					.thumbnail
+						.caption
+							h4 Nome de um lugar
+							p Endereço de um lugar

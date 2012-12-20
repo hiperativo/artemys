@@ -109,6 +109,19 @@ h3
 		:text-align center
 		:color $branco
 
+.place
+	:cursor pointer
+	&.active
+		.thumbnail
+			:background $marrom
+			* 
+				:color $branco
+	&:hover
+		.thumbnail
+			:background $areia
+			* 
+				:color $branco
+
 .box-brown
 	:background $marrom_escuro
 	.readmore
