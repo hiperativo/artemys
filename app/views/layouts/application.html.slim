@@ -42,7 +42,7 @@ html
 						- unless @title.nil? 
 							h2= t "titulo.#{@title.underscore}" 
 						- else
-							= params[:action].titleize
+							= t "titulo."+params[:action].titleize
 
 		= yield
 		= render partial: "social/fb_root"
