@@ -1,5 +1,7 @@
-//= require "bootstrap"
-//= require "fancybox"
+//= require bootstrap
+//= require fancybox
+//= require _font-awesome
+
 @import "bourbon"
 
 @import url("http://fonts.googleapis.com/css?family=Open+Sans")
@@ -111,6 +113,13 @@ h3
 
 .place
 	:cursor pointer
+	h4, p
+		:margin 0px
+	p.localization
+		:font-size 10px
+	p.address
+		:margin-top 3px
+		
 	&.active
 		.thumbnail
 			:background $marrom

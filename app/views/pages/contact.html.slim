@@ -12,9 +12,8 @@
 		.span6
 			.well
 				h3 Stay Connected
-				- 3.times do
-					.media
-						= link_to "#", class: "pull-left" do
-							= image_tag "//placehold.it/48", class: "media-object"
-						.media-body
-							| facebook.com/artemys
+				ul.icons
+					- for social_media in ["Facebook", "Twitter", "Google Plus"]
+						li style="vertical-align: center"
+							i class="icon-#{social_media.parameterize}-sign icon-2x"
+							| #{social_media}

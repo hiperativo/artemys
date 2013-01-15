@@ -35,7 +35,8 @@ $ ->
 				for place in city
 					place_html = window.place_model
 					place_html.find("h4").html place.store
-					place_html.find("p").html place.address
+					place_html.find(".address").html place.address
+					place_html.find(".localization").html "<i class='icon-home'></i>"+place.localization
 					output += "<li data-address='#{place.address}' class='span4 place'>#{place_html.html()}</li>"
 
 				$(".places").html(output)
