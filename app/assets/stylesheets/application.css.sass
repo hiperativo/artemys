@@ -35,6 +35,9 @@ h3
 	:opacity 0.8
 	:line-height 20px
 
+	a
+		:text-decoration underline
+
 .catalog-download
 	:position absolute
 	:bottom 20px
@@ -48,6 +51,10 @@ h3
 
 	img
 		margin: 10px
+		@include transition(all 140ms ease-out)
+
+		&:hover
+			@include transform(scale(1.2))
 
 .upper-nav
 	:background-color $marrom_escuro
