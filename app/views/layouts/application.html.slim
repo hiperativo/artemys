@@ -3,10 +3,14 @@ html
 	head
 		title
 		= stylesheet_link_tag 		"application", :media => "all"
-		= javascript_include_tag 	"application"
+		= javascript_include_tag 	"application", ("sort" unless current_user.nil?)
+
 		= csrf_meta_tags
 
 	body
+		- unless current_user.nil?
+			.alert.alert-info Você está logado como Admin
+
 		.upper-nav
 			.container
 				.row
@@ -21,7 +25,7 @@ html
 					.fb-like.span2 data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="arial"
 
 					.dropdown.pull-right
-						= link_to "#", class: "btn btn-inverse btn-mini dropdown-toggle", data:{toggle:"dropdown"} do
+						= link_to "#", class: "btn btn-inverse dropdown-toggle", data:{toggle:"dropdown"} do
 							| Change language
 							span.caret
 						ul.dropdown-menu

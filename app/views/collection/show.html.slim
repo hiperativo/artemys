@@ -4,19 +4,27 @@
 		- unless @collection.blank?
 			.span3
 				.well
-					ul.nav.nav-list
-						li.nav-header Categorias
-						li= link_to "Todas", params.merge(category: nil), class: "category-selector"
+					ul.sortable.nav.nav-list
+						li.nav-header.dont-sort Categorias
+						li.dont-sort= link_to "Todas", params.merge(category: nil), class: "category-selector"
 						
-						- for category in @collection.pieces.unique_categories do
-							li= link_to category.title, params.merge(category: category.title), class: "category-selector"
+						- for category in @categorias
+							li id="category-id-#{category.id}"= link_to category.title, params.merge(category: category.title), class: "category-selector"
 		
 			.gallery.span9
-				ul.thumbnails
+				ul.thumbnails.sortable
 					- for piece in @pieces do
-						li.span3 data-category="#{piece.category.title}"
+						li.span3 id="piece-id-#{piece.id}" data-category="#{piece.category.title}"
 							.thumbnail
-								= link_to image_tag(piece.image_url :small, class: "img-round"), piece.image_url(:big), data: {lightbox: true}, rel: "galeria"
+								= link_to piece.image_url(:big), data: {lightbox: true}, rel: "galeria" do
+									= image_tag(piece.image_url :small, class: "img-round")
+									.caption
+										- @btn_class = piece.watermark ? 'btn-danger' : 'btn-primary'
+										- @div_class = piece.watermark ? 'icon-minus' : 'icon-plus'
+
+										= link_to "/admin/piece/#{piece.id}/edit?"+{piece:{watermark: !piece.watermark}}.to_param, class: "btn btn-small #{@btn_class} add-watermark", remote: true, method: "put" do
+											div class="icon #{@div_class}"
+											|  Marca d'água
 
 		- else 
 			.span12

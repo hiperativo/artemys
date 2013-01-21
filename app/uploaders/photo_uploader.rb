@@ -42,7 +42,9 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
 	version :small do
 		resize_to_fill 220, 200
+		process :watermark
 	end
+
 	
 	def watermark
 		if model.watermark

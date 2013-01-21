@@ -1,7 +1,8 @@
-//= require jquery
-//= require jquery_ujs
-//= require bootstrap
-//= require fancybox
+#= require jquery
+#= require jquery_ujs
+#= require jquery-ui
+#= require bootstrap
+#= require fancybox
 
 $ ->
 
@@ -19,6 +20,15 @@ $ ->
 			$("[data-category]").fadeIn()
 		
 		false
+
+	$(".add-watermark").click ->
+		$(this)
+		.toggleClass("btn-danger")
+		.toggleClass("btn-primary")
+		.find(".icon")
+		.toggleClass("icon-plus")
+		.toggleClass("icon-minus")
+
 
 	if $(".map").size() > 0 
 
@@ -94,3 +104,4 @@ $ ->
 				update_map_with_address address
 				console.log address
 				false
+

@@ -18,6 +18,6 @@ class Piece < ActiveRecord::Base
 	end
 
 	def self.unique_categories
-		select("DISTINCT category_id").collect(&:category)
+		Category.where(id: [select("DISTINCT category_id").collect(&:category).collect(&:id)]).order("ordem ASC")
 	end
 end
