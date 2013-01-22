@@ -22,6 +22,11 @@ gem 'copycopter_client'
 gem 'geocoder'
 gem 'font-awesome-sass-rails'
 
+# group :development do 
+# 	gem 'rb-fsevent', '~> 0.9.1'
+# 	gem 'guard-livereload'
+# end
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

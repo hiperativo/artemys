@@ -18,13 +18,14 @@
 							.thumbnail
 								= link_to piece.image_url(:big), data: {lightbox: true}, rel: "galeria" do
 									= image_tag(piece.image_url :small, class: "img-round")
-									.caption
-										- @btn_class = piece.watermark ? 'btn-danger' : 'btn-primary'
-										- @div_class = piece.watermark ? 'icon-minus' : 'icon-plus'
+									- unless current_user.nil?
+										.caption
+											- @btn_class = piece.watermark ? 'btn-danger' : 'btn-primary'
+											- @div_class = piece.watermark ? 'icon-minus' : 'icon-plus'
 
-										= link_to "/admin/piece/#{piece.id}/edit?"+{piece:{watermark: !piece.watermark}}.to_param, class: "btn btn-small #{@btn_class} add-watermark", remote: true, method: "put" do
-											div class="icon #{@div_class}"
-											|  Marca d'água
+											= link_to "/admin/piece/#{piece.id}/edit?"+{piece:{watermark: !piece.watermark}}.to_param, class: "btn btn-small #{@btn_class} add-watermark", remote: true, method: "put" do
+												div class="icon #{@div_class}"
+												|  Marca d'água
 
 		- else 
 			.span12
