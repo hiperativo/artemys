@@ -2,7 +2,7 @@
 
 ## Layout
 * Colocar botão do canal do Youtube
-* Consertar twitter e facebook
+* Consertar twitter e Facebook
 
 ## Home
 * Corrigir o banner
@@ -21,7 +21,6 @@
 
 ## Where to buy
 * Adicionar as novas lojas
-
 
 ## Gallery
 * Subir imagens e vídeos do facebook
