@@ -1,0 +1,10 @@
+- @title = "Piece"
+.container style="padding: 40px"
+	.row
+		= image_tag @piece.image_url(:big), class: "span4 img-rounded"
+
+		.span4
+			h3 style="margin-top: 0px" Description
+			= Markdown.new(@description).to_html.html_safe
+			
+			p.badge Code: #{@piece.title}

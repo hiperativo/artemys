@@ -1,6 +1,7 @@
 - @title = "Collections"
 .conteudo.container.well
 	.row
+		= @back
 		- unless @collection.blank?
 			.span3
 				.well
@@ -16,7 +17,8 @@
 					- for piece in @pieces do
 						li.span3 id="piece-id-#{piece.id}" data-category="#{piece.category.title}"
 							.thumbnail
-								= link_to piece.image_url(:big), data: {lightbox: true}, rel: "galeria" do
+								-# link_to piece.image_url(:big), data: {lightbox: true}, rel: "galeria" do
+								= link_to piece, data: {lightbox: true}, format: :js, rel: "galeria", class: "fancybox.iframe" do
 									= image_tag(piece.image_url :small, class: "img-round")
 									- unless current_user.nil?
 										.caption

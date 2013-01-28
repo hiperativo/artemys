@@ -6,6 +6,8 @@ Artemys::Application.routes.draw do
 		post "sort", on: :collection
 	end
 
+	resources :pieces
+
 	match "be-a-reseller" => "pages#be_a_reseller"
 	match "where-to-buy" => "pages#where_to_buy"
 	match "gallery" => "media#index"

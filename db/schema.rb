@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130117132215) do
+ActiveRecord::Schema.define(:version => 20130128233418) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -60,12 +60,13 @@ ActiveRecord::Schema.define(:version => 20130117132215) do
   create_table "pieces", :force => true do |t|
     t.string   "title"
     t.string   "image"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.integer  "collection_id"
     t.integer  "category_id"
     t.boolean  "watermark"
     t.integer  "ordem"
+    t.text     "description_en"
   end
 
   create_table "places", :force => true do |t|
