@@ -1,7 +1,7 @@
 # To dos
 
 ## Layout
-* Colocar botão do canal do Youtube
+* **Colocar botão do canal do Youtube**
 * Consertar twitter e Facebook
 
 ## Home
@@ -13,9 +13,9 @@
 
 ## Collection
 * Arte para aparecer svarovski
-* Organizar os produtos pela ordem das categorias
-* Mostrar descrição e código de cada produto
-* Uniformizar as exibições
+* **Organizar os produtos pela ordem das categorias**
+* **Mostrar descrição e código de cada produto**
+* **Uniformizar as exibições**
 * "Download our catalog" dentro de cada país
 * Adicionar em outras coleções
 

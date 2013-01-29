@@ -1,8 +1,9 @@
 - @title = "Collections"
 .conteudo.container.well.well-small
 	.row
-		.span12
-			h3 style="text-align: center; margin-top: 40px" Please, select your Country
+		.span12 style="text-align: center; margin-top: 30px"
+			= image_tag "peca-principal.jpg"
+			h3 Please, select your Country
 
 	.row.country-selection
 		.span12 style="text-align: center"
@@ -14,7 +15,3 @@
 
 			= link_to "/collection/ecuador" do
 				= image_tag "flags/ec.png", size:"60x60"
-
-	= link_to "#", class: "btn btn-mini btn-primary pull-right catalog-download", do
-		i.icon-download-alt
-		|  Download our catalog

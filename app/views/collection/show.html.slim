@@ -11,23 +11,26 @@
 						
 						- for category in @categorias
 							li id="category-id-#{category.id}"= link_to category.title, params.merge(category: category.title), class: "category-selector"
-		
+				= link_to "#", class: "btn btn-mini btn-primary", do
+					i.icon-download-alt
+					|  Download our catalog	
 			.gallery.span9
 				ul.thumbnails.sortable
-					- for piece in @pieces do
-						li.span3 id="piece-id-#{piece.id}" data-category="#{piece.category.title}"
-							.thumbnail
-								-# link_to piece.image_url(:big), data: {lightbox: true}, rel: "galeria" do
-								= link_to piece, data: {lightbox: true}, format: :js, rel: "galeria", class: "fancybox.iframe" do
-									= image_tag(piece.image_url :small, class: "img-round")
-									- unless current_user.nil?
-										.caption
-											- @btn_class = piece.watermark ? 'btn-danger' : 'btn-primary'
-											- @div_class = piece.watermark ? 'icon-minus' : 'icon-plus'
+					- for categoria in Category.order :ordem do
+						- for piece in categoria.pieces do
+							li.span3 id="piece-id-#{piece.id}" data-category="#{piece.category.title}"
+								.thumbnail
+									-# link_to piece.image_url(:big), data: {lightbox: true}, rel: "galeria" do
+									= link_to piece, data: {lightbox: true}, format: :js, rel: "galeria", class: "fancybox.iframe" do
+										= image_tag(piece.image_url :small, class: "img-round")
+										- unless current_user.nil?
+											.caption
+												- @btn_class = piece.watermark ? 'btn-danger' : 'btn-primary'
+												- @div_class = piece.watermark ? 'icon-minus' : 'icon-plus'
 
-											= link_to "/admin/piece/#{piece.id}/edit?"+{piece:{watermark: !piece.watermark}}.to_param, class: "btn btn-small #{@btn_class} add-watermark", remote: true, method: "put" do
-												div class="icon #{@div_class}"
-												|  Marca d'água
+												= link_to "/admin/piece/#{piece.id}/edit?"+{piece:{watermark: !piece.watermark}}.to_param, class: "btn btn-small #{@btn_class} add-watermark", remote: true, method: "put" do
+													div class="icon #{@div_class}"
+													|  Marca d'água
 
 		- else 
 			.span12

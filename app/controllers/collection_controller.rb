@@ -5,7 +5,6 @@ class CollectionController < ApplicationController
 	def show
 		@collection = Collection.find_by_title(params[:id].titleize)
 		@categorias = @collection.pieces.unique_categories
-		@pieces = @collection.pieces.order("ordem ASC")
 	end
 
 	def sort
