@@ -12,11 +12,11 @@
 * Trocar os Press releases por regalos personalizados
 
 ## Collection
-* Arte para aparecer svarovski
+* **Arte para aparecer svarovski**
 * **Organizar os produtos pela ordem das categorias**
 * **Mostrar descrição e código de cada produto**
 * **Uniformizar as exibições**
-* "Download our catalog" dentro de cada país
+* **"Download our catalog" dentro de cada país**
 * Adicionar em outras coleções
 
 ## Where to buy
