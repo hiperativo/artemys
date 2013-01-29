@@ -34,6 +34,7 @@ GEM
     better_errors (0.3.2)
       coderay (>= 1.0.0)
       erubis (>= 2.7.0)
+    binding_of_caller (0.6.8)
     bootstrap-sass (2.1.0.0)
     bourbon (2.1.1)
       sass (>= 3.1)
@@ -209,6 +210,7 @@ PLATFORMS
 
 DEPENDENCIES
   better_errors
+  binding_of_caller
   bourbon
   cambelt
   carrierwave
