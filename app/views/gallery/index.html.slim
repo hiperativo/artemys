@@ -1,0 +1,24 @@
+- @title = "Gallery"
+.conteudo.container.well
+	- @items = GalleryItem.all
+	.row
+		- unless @items.blank?
+			.span3
+				.well
+					ul.sortable.nav.nav-list
+						li.nav-header.dont-sort Categorias
+						li.dont-sort= link_to "Todas", params.merge(category: nil), class: "category-selector"
+						- for category in GalleryCategory.all
+							li id="category-id-#{category.id}"= link_to category.name, params.merge(category: category.name), class: "category-selector"
+			.gallery.span9
+				ul.thumbnails.sortable
+					- for categoria in GalleryCategory.order :ordem do
+						- for piece in categoria.gallery_items do
+							li.span3 id="piece-id-#{piece.id}" data-category="#{piece.gallery_category.name}"
+								.thumbnail
+									= link_to piece.image_url(:big), data: {lightbox: true}, format: :js, rel: "galeria", class: "fancybox" do
+										= image_tag(piece.image_url :small, class: "img-round")
+
+		- else 
+			.span12
+				h3 style="text-align: center" There is no pieces here yet. #{link_to "Go back.", :back}

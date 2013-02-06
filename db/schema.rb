@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130128233418) do
+ActiveRecord::Schema.define(:version => 20130206023600) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -44,11 +44,27 @@ ActiveRecord::Schema.define(:version => 20130128233418) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "media", :force => true do |t|
-    t.string   "image"
-    t.string   "video"
+  create_table "gallery_categories", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "ordem"
+  end
+
+  create_table "gallery_items", :force => true do |t|
+    t.string   "image"
+    t.string   "video"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.integer  "gallery_category_id"
+    t.integer  "ordem"
+  end
+
+  create_table "media_categorizations", :force => true do |t|
+    t.integer  "media_id"
+    t.integer  "media_category_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "pictures", :force => true do |t|
