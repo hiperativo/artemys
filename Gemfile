@@ -12,7 +12,7 @@ gem 'bourbon'
 gem 'cambelt'
 gem 'simple_form'
 gem 'country_select'
-gem 'rails_admin', git: "git@github.com:sferik/rails_admin.git"
+gem 'rails_admin', git: "git://github.com/sferik/rails_admin.git"
 gem 'fog'
 gem 'rmagick'
 gem 'carrierwave'
