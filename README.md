@@ -5,7 +5,7 @@
 * Consertar twitter e Facebook
 
 ## Home
-* Corrigir o banner
+* **Corrigir o banner**
 * **Una marca del + Latitud Sur**
 
 ## Discover

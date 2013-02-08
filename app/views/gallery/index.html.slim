@@ -16,8 +16,12 @@
 						- for piece in categoria.gallery_items do
 							li.span3 id="piece-id-#{piece.id}" data-category="#{piece.gallery_category.name}"
 								.thumbnail
-									= link_to piece.image_url(:big), data: {lightbox: true}, format: :js, rel: "galeria", class: "fancybox" do
-										= image_tag(piece.image_url :small, class: "img-round")
+									- if piece.video.blank?
+										= link_to piece.image_url(:big), data: {lightbox: true}, format: :js, rel: "galeria", class: "fancybox" do
+											= image_tag(piece.image_url :small, class: "img-round")
+									- else
+										= link_to piece.youtube_pure_video, data: {lightbox: true}, format: :js, rel: "galeria", class: "fancybox.iframe" do
+											= image_tag(piece.youtube_thumbnail, class: "img-round")
 
 		- else 
 			.span12

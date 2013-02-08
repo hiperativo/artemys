@@ -1,7 +1,7 @@
 class Piece < ActiveRecord::Base
 	belongs_to :category
-	belongs_to :collection
-	attr_accessible :image, :image_cache, :image_url, :title, :category_id, :collection_id, :remove_image, :watermark
+	has_and_belongs_to_many :collections
+	attr_accessible :image, :image_cache, :image_url, :title, :category_id, :remove_image, :collection_ids, :category_id
 	mount_uploader :image, PhotoUploader
 
 	attr_accessor :unique_categories
@@ -20,4 +20,14 @@ class Piece < ActiveRecord::Base
 	def self.unique_categories
 		Category.where(id: [select("DISTINCT category_id").collect(&:category).collect(&:id)]).order("ordem ASC")
 	end
+
+	# accepts_nested_attributes_for :collections, :allow_destroy => true
+	# attr_accessible :collections_attributes
+
+	rails_admin do
+		configure :collections do
+			inverse_of :pieces
+		end
+	end
+
 end

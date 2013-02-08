@@ -16,7 +16,7 @@
 					|  Download our catalog	
 			.gallery.span9
 				ul.thumbnails.sortable
-					- for categoria in Category.order :ordem do
+					- for categoria in @categorias.order :ordem do
 						- for piece in categoria.pieces do
 							li.span3 id="piece-id-#{piece.id}" data-category="#{piece.category.title}"
 								.thumbnail
