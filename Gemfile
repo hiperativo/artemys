@@ -20,6 +20,7 @@ gem 'maruku'
 gem 'copycopter_client'
 gem 'geocoder'
 gem 'font-awesome-sass-rails'
+gem 'psych'
 
 # group :development do 
 # 	gem 'rb-fsevent', '~> 0.9.1'
