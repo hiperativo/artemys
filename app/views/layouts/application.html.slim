@@ -8,23 +8,24 @@ html
 
 	body
 		- unless current_user.nil?
-			.alert.alert-info Você está logado como Admin.}
+			.alert.alert-info Você está logado como Admin.
 
 		.upper-nav
 			.container
 				.row
+
+					.fb-like-box.span4 data-href="http://facebook.com/artemysjoyas" data-layout="button_count" data-width="450" data-show-faces="false" data-font="arial" data-stream="false" data-colorscheme="dark"
 					
-					.span1
+					.span1 style="margin-top: 10px"
 						= link_to "https://twitter.com/Artemys_joyas", class:"twitter-follow-button", data:{"show-count"=>false, lang: "es", "show-screen-name"=> false} do 
 							| Seguir a @Artemys_joyas
 					javascript:
 						!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 
-					.span2
+					.span2 style="margin-top: 10px"
 						= link_to "//youtube.com/user/ARTEMYSJN" do
 							= image_tag "subscribe-youtube.png"
 
-					.fb-like.span2 data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="arial"
 
 
 					.dropdown.pull-right

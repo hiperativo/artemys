@@ -1,5 +1,9 @@
 - @title = "Collections"
 .conteudo.container.well
+	.row style="margin-bottom: 10px; text-align: right"
+		.span12
+			- for country_code, country_name in {ve: "Venezuela", us: "USA", ec: "Ecuador"}
+				= link_to image_tag("flags/#{country_code}.png", size:"20x20"), "/collection/#{country_name}", style: "margin-left: 10px;"
 	.row
 		= @back
 		- unless @collection.blank?
@@ -17,7 +21,7 @@
 			.gallery.span9
 				ul.thumbnails.sortable
 					- for categoria in @categorias.order :ordem do
-						- for piece in categoria.pieces do
+						- for piece in categoria.pieces & @pieces do
 							li.span3 id="piece-id-#{piece.id}" data-category="#{piece.category.title}"
 								.thumbnail
 									-# link_to piece.image_url(:big), data: {lightbox: true}, rel: "galeria" do

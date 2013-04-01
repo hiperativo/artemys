@@ -3,8 +3,9 @@ class CollectionController < ApplicationController
 	end
 
 	def show
-		@collection = Collection.find_by_title(params[:id].titleize)
-		@categorias = @collection.pieces.unique_categories
+		@collection = Collection.find_by_title(params[:id])
+		@pieces = @collection.pieces
+		@categorias = @pieces.unique_categories
 	end
 
 	def sort

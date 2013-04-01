@@ -3,7 +3,7 @@
 		#carousel-home.carousel.slide.span12
 			.carousel-inner
 				- for banner in %w"Natureza Dia Noite"
-					.item class="#{"active" if banner == "Dia"}"
+					.item class="#{"active" if banner == "Natureza"}"
 						= image_tag "banner-#{banner.parameterize}.png"
 			= link_to "‹", "#carousel-home", "data-slide" => "prev", class: "carousel-control left"
 			= link_to "›", "#carousel-home", "data-slide" => "next", class: "carousel-control right"

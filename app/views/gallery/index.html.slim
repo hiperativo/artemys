@@ -1,17 +1,24 @@
 - @title = "Gallery"
+
+.gallery-categories-float
+	.container
+		ul.nav.nav-pills
+			- for category in GalleryCategory.all
+				li id="category-id-#{category.id}"= link_to category.name, params.merge(category: category.name), class: "category-selector", style:"color: #666"
+
 .conteudo.container.well
 	- @items = GalleryItem.all
-	.row
-		- unless @items.blank?
-			.span3
-				.well
-					ul.sortable.nav.nav-list
-						li.nav-header.dont-sort Categorias
-						li.dont-sort= link_to "Todas", params.merge(category: nil), class: "category-selector"
-						- for category in GalleryCategory.all
-							li id="category-id-#{category.id}"= link_to category.name, params.merge(category: category.name), class: "category-selector"
-			.gallery.span9
-				ul.thumbnails.sortable
+	- unless @items.blank?
+		.row
+			.span12
+				ul#gallery-categories.nav.nav-tabs
+					- GalleryCategory.all.each_with_index do |category, n|
+						li class="#{"active" if n==0}" id="category-id-#{category.id}"
+							= link_to category.name, params.merge(category: category.name), class: "category-selector"
+
+		.row
+			.gallery.span12
+				ul.thumbnails
 					- for categoria in GalleryCategory.order :ordem do
 						- for piece in categoria.gallery_items do
 							li.span3 id="piece-id-#{piece.id}" data-category="#{piece.gallery_category.name}"
@@ -22,7 +29,9 @@
 									- else
 										= link_to piece.youtube_pure_video, data: {lightbox: true}, format: :js, rel: "galeria", class: "fancybox.iframe" do
 											= image_tag(piece.youtube_thumbnail, class: "img-round")
+											
+									.caption Título da imagem
 
-		- else 
-			.span12
-				h3 style="text-align: center" There is no pieces here yet. #{link_to "Go back.", :back}
+	- else 
+		.span12
+			h3 style="text-align: center" There is no pieces here yet. #{link_to "Go back.", :back}

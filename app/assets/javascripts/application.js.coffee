@@ -4,6 +4,7 @@
 #= require fancybox
 #= require bootstrap
 
+
 $ ->
 
 	$(".carousel").carousel
@@ -15,11 +16,17 @@ $ ->
 		category = $(this).text()
 		if category != "Todas"
 			$("[data-category]").hide()
-			$("[data-category=#{category}]").fadeIn()
+			$("[data-category='#{category}']").fadeIn()
 		else 
 			$("[data-category]").fadeIn()
 		
 		false
+	do $(".category-selector").first().click
+
+	$("#gallery-categories a").click ->
+		$("#gallery-categories .active").removeClass "active"
+		$(this).parent().addClass "active"
+
 
 	$(".add-watermark").click ->
 		$(this)
@@ -39,7 +46,6 @@ $ ->
 			do map_interactions
 
 		map_interactions = ->
-
 			update_places = (city) ->
 				output = ""
 				for place in city
@@ -104,4 +110,35 @@ $ ->
 				update_map_with_address address
 				console.log address
 				false
+
+
+	show_when_is_hidden = (hidden_element, what_to_show) ->
+		hidden_element.attr "data-visible", "true"
+
+		$(".gallery-categories-float a").click -> 
+			$("html, body").scrollTop hidden_element.offset()['top'] - 15
+
+		$(window).scroll -> 
+		
+			is_visible = (hidden_element.offset()['top'] - $(window).scrollTop()) > 0
+			was_visible = hidden_element.attr("data-visible") == "true"
+
+			set_visible = -> hidden_element.attr "data-visible", "true"
+			set_hidden = -> hidden_element.attr "data-visible", "false"
+
+			if is_visible
+				if !was_visible
+					do set_visible
+					what_to_show.css
+						top: "-34px"
+			else
+				if was_visible
+					do set_hidden
+					what_to_show.css
+						top: 0
+
+	if $(".gallery-categories-float").size() > 0
+		show_when_is_hidden $("#gallery-categories"), $(".gallery-categories-float")
+
+
 
