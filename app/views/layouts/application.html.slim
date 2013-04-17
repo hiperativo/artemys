@@ -12,29 +12,21 @@ html
 
 		.upper-nav
 			.container
-				.row
+				.row					
+					.span12
+						- for social_media, value in { twitter: "artemys_joyas",
+														facebook: "artemysjoyas", 
+														youtube: "user/ARTEMYSJN"}
 
-					.fb-like-box.span4 data-href="http://facebook.com/artemysjoyas" data-layout="button_count" data-width="450" data-show-faces="false" data-font="arial" data-stream="false" data-colorscheme="dark"
-					
-					.span1 style="margin-top: 10px"
-						= link_to "https://twitter.com/Artemys_joyas", class:"twitter-follow-button", data:{"show-count"=>false, lang: "es", "show-screen-name"=> false} do 
-							| Seguir a @Artemys_joyas
-					javascript:
-						!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+							= link_to image_tag("icon-#{social_media}.png", style:"margin-left: 5px"), "//#{social_media}.com/#{value}"
 
-					.span2 style="margin-top: 10px"
-						= link_to "//youtube.com/user/ARTEMYSJN" do
-							= image_tag "subscribe-youtube.png"
-
-
-
-					.dropdown.pull-right
-						= link_to "#", class: "btn btn-inverse dropdown-toggle", data:{toggle:"dropdown"} do
-							| Change language
-							span.caret
-						ul.dropdown-menu
-							li= link_to "Español", params.merge(language:"es-VE")
-							li= link_to "English", params.merge(language:"en")
+						.dropdown.pull-right
+							= link_to "#", class: "btn btn-inverse dropdown-toggle", data:{toggle:"dropdown"} do
+								| Change language
+								span.caret
+							ul.dropdown-menu
+								li= link_to "Español", params.merge(language:"es-VE")
+								li= link_to "English", params.merge(language:"en")
 
 		.topo.container
 			.row
