@@ -14,7 +14,7 @@ gem 'bourbon'
 gem 'cambelt'
 gem 'simple_form'
 gem 'country_select'
-gem 'rails_admin', git: "git://github.com/sferik/rails_admin.git"
+gem 'rails_admin'
 gem 'fog'
 gem 'rmagick'
 gem 'carrierwave'
@@ -27,5 +27,6 @@ gem 'coffee-rails', '~> 3.2.1'
 gem 'uglifier', '>= 1.0.3'
 
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 gem "devise"

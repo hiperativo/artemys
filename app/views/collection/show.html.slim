@@ -15,7 +15,7 @@
 						
 						- for category in @categorias
 							li id="category-id-#{category.id}"= link_to category.title, params.merge(category: category.title), class: "category-selector"
-				= link_to "#", class: "btn btn-mini btn-primary", do
+				= link_to "#", class: "btn btn-mini btn-primary" do
 					i.icon-download-alt
 					|  Download our catalog	
 			.gallery.span9
