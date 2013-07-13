@@ -3,9 +3,11 @@ class CollectionController < ApplicationController
 	end
 
 	def show
-		@collection = Collection.find_by_title(params[:id])
-		@pieces = @collection.pieces
-		@categorias = @pieces.unique_categories
+		@collection = Collection.where(title: params[:id]).first
+		if @collection
+			@pieces = @collection.pieces
+			@categorias = @pieces.unique_categories
+		end
 	end
 
 	def sort

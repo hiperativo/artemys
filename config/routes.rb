@@ -1,16 +1,20 @@
 Artemys::Application.routes.draw do
-	mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 	devise_for :users
 
 	resources :collection do
 		post "sort", on: :collection
 	end
 
-	resources :pieces
+	resources :pieces do
+		get "edit", on: :collection
+		post "upload_photo", on: :collection
+	end
 
-	match "be-a-reseller" => "pages#be_a_reseller"
-	match "where-to-buy" => "pages#where_to_buy"
-	match "gallery" => "gallery#index"
-	match ":action" => "pages"
+	get "be-a-reseller" => "pages#be_a_reseller"
+	get "where-to-buy" => "pages#where_to_buy"
+	get "gallery" => "gallery#index"
+	get ":action" => "pages"
 	root :to => "pages#home"
 end

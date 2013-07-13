@@ -1,0 +1,34 @@
+.conteudo.container.well
+	- for piece in @pieces do
+		= simple_form_for piece, defaults: { label: false }, html:{class: "live-update", multipart: true} do |f|
+			table.table
+				tr
+					= image_tag piece.image_url :small
+					td= f.input :image_cache, as: :hidden
+					td= f.input :title, placeholder: "código"
+					td= f.association :category
+					td= f.input :watermark, label: "marca d'água?", as: :radio_buttons
+					td= f.association :collections, as: :check_boxes, boolean_style: :nested
+
+	/ table.table.table-striped
+	/ 	thead
+	/ 		tr
+	/ 			th Imagem
+	/ 			th Código
+	/ 			th Categoria
+	/ 			th Coleção
+	/ 	tbody
+	/ 		- for piece in @pieces do
+	/ 			= simple_form_for piece, url: "/pieces/update", defaults: { label: false }, html:{class: "live-update"} do |f|
+	/ 				tr
+	/ 					td
+	/ 						= f.input :image
+	/ 						= f.input :image_cache, as: :hidden
+
+	/ 					td= f.input :title
+	/ 					td= f.association :category
+	/ 					td= f.association :collections, as: :check_boxes, boolean_style: :nested
+
+	h3 Subir várias imagens de uma só vez:
+	= simple_form_for :piece, url: "/pieces/upload_photo", html: { class: "dropzone" }
+		| 

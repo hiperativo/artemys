@@ -8,7 +8,11 @@ html
 
 	body
 		- unless current_user.nil?
-			.alert.alert-info Você está logado como Admin.
+			= nav_bar brand: "Admin", class: "inverse"
+				= menu_group
+					= menu_item "Editar peças", edit_pieces_path
+
+			/ .alert.alert-info Você está logado como Admin.
 
 		.upper-nav
 			.container

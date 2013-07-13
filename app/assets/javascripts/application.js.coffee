@@ -3,9 +3,19 @@
 #= require jquery.ui.all
 #= require fancybox
 #= require bootstrap
-
+#= require dropzone
 
 $ ->
+	$("form.live-update *").change ->
+		form = $(this).closest("form")
+		$(this).closest("form").submit()
+		$(this).effect "highlight"
+		false
+
+	$("form.live-update").submit ->
+		data = $(this).serialize()
+		$.post $(this).attr("action"), data
+		false
 
 	$(".carousel").carousel
 		interval: 5000
