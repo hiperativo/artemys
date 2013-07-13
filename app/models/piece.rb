@@ -20,7 +20,7 @@ class Piece < ActiveRecord::Base
 	# end
 
 	def set_code
-		if self.title.blank?
+		if self.title.blank? and !self.image.blank?
 			self.title = self.image.identifier.split(".")[0]
 			self.save
 		end
