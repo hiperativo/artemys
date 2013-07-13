@@ -35,3 +35,5 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
 gem "devise", "~>3.0.0rc"
+
+gem "rails_12factor", group: :production
