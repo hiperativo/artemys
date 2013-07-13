@@ -1,7 +1,6 @@
 .conteudo.container.well
 	- for piece in @pieces do
 		= simple_form_for piece, defaults: { label: false }, html:{class: "live-update", multipart: true} do |f|
-			= debug piece.watermark
 			table.table
 				tr
 					td= image_tag piece.image_url(:small)
