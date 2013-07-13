@@ -1,8 +1,10 @@
 class Piece < ActiveRecord::Base
 	belongs_to :category
 	has_and_belongs_to_many :collections
-	attr_accessible :image, :image_cache, :image_url, :title, :category_id, :remove_image, :collection_ids, :category_id
+	attr_accessible :image, :watermark, :image_cache, :image_url, :title, :category_id, :remove_image, :collection_ids, :category_id
 	mount_uploader :image, PhotoUploader
+
+	after_save :set_code
 
 	# attr_accessor :unique_categories
 
@@ -16,6 +18,13 @@ class Piece < ActiveRecord::Base
 	# def update_watermark
 	# 	self.image.recreate_versions!
 	# end
+
+	def set_code
+		if self.title.blank?
+			self.title = self.image.identifier.split(".")[0]
+			self.save
+		end
+	end
 
 	def self.unique_categories
 		Category.where(id: [select("DISTINCT category_id").collect(&:category).collect(&:id)]).order("ordem ASC")
