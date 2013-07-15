@@ -20,9 +20,12 @@ class Piece < ActiveRecord::Base
 	# end
 
 	def set_code
-		if self.title.blank? and !self.image.blank?
-			self.title = self.image.identifier.split(".")[0]
-			self.save
+		if self.title.blank? and self.image.present?
+			title = self.image.path.match(/\/(.*)\./)
+			unless title.nil?
+				self.title = title[1]
+				self.save
+			end
 		end
 	end
 
