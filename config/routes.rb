@@ -1,7 +1,7 @@
 Artemys::Application.routes.draw do
   
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 	devise_for :users
+	mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
 	resources :collection do
 		post "sort", on: :collection

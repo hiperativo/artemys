@@ -37,7 +37,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
 
 	version :big do
 		process resize_to_limit: [1000, 600]
-		# process :watermark
+		process :watermark
 	end
 
 	version :small do
@@ -46,14 +46,14 @@ class PhotoUploader < CarrierWave::Uploader::Base
 	end
 
 	
-	# def watermark
-	# 	if model.watermark
-	# 		manipulate! do |img|
-	# 			watermark = Magick::Image.read(Rails.root.join "app", "assets", "images", "made-with-svarovski-elements.png").first
-	# 			img.composite watermark, Magick::SouthEastGravity, Magick::OverCompositeOp
-	# 		end
-	# 	end
-	# end
+	def watermark
+		if model.watermark
+			manipulate! do |img|
+				watermark = Magick::Image.read(Rails.root.join "app", "assets", "images", "made-with-svarovski-elements.png").first
+				img.composite watermark, Magick::SouthEastGravity, Magick::OverCompositeOp
+			end
+		end
+	end
 
 	# Add a white list of extensions which are allowed to be uploaded.
 	# For images you might use something like this:
