@@ -18,11 +18,11 @@ class PagesController < ApplicationController
 	
 	def places
 		@states, @cities = {}
-		for store in Place.all
-			if store.address.blank? then break end
-		 	@states[store[:state]] ||= {}
-		 	@states[store[:state]][store[:city]] ||= []
-			@states[store[:state]][store[:city]] << store 
+		for place in Place.all
+			# if place.address.blank? then break end
+		 	@states[place[:state]] ||= {}
+		 	@states[place[:state]][place[:city]] ||= []
+			@states[place[:state]][place[:city]] << place 
 		end
 
 		respond_to do |format|
