@@ -15,6 +15,7 @@ Artemys::Application.routes.draw do
 	get "be-a-reseller" => "pages#be_a_reseller"
 	get "where-to-buy" => "pages#where_to_buy"
 	get "gallery" => "gallery#index"
+	post "send_contact" => "pages#send_contact"
 	get ":action" => "pages"
 	root :to => "pages#home"
 end

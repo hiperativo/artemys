@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby "2.0.0"
 
-gem 'rails'
+gem 'rails', "4.0.0"
 
 gem 'pg'
 gem 'thin'
@@ -33,6 +33,7 @@ gem 'protected_attributes'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'font-awesome-sass-rails'
 
 gem "devise"
 

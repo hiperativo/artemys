@@ -47,9 +47,6 @@ $ ->
 		.toggleClass("icon-plus")
 		.toggleClass("icon-minus")
 
-
-	new PlaceSelector
-
 	show_when_is_hidden = (hidden_element, what_to_show) ->
 		hidden_element.attr "data-visible", "true"
 

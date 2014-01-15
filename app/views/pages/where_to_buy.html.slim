@@ -2,21 +2,23 @@
 
 .conteudo.container.well
 	.row
-		.span3
+		.span12
 			form.search-map action="/"
 				h3 Quick Search
-				= simple_form_for :location do |f|
-					= f.input :country, collection: ["Venezuela"], include_blank: false
-					= f.input :state, collection: @states
-					= f.input :city, collection: ["Select state first"]
-		.span5 style="height:380px;width:380px"
-			.map style="height:100%;width:100%"
-		.span4
+				.row
+					= simple_form_for :location, html: { class: "form-horizontal" } do |f|
+						.span3= f.input :country, collection: ["Venezuela"], include_blank: false
+						.span3= f.input :state, collection: @states
+						.span3= f.input :city, collection: ["Select state first"]
+
+	.row
+		.span12
 			h3 Places
 			ul.thumbnails.places
-				li.span4.place
-					.thumbnail
-						.caption
-							h4 Nome de um lugar
-							p.address Endereço de um lugar
-							p.localization localização de um lugar
+				- for place in @places
+					li.span4.place data-city=place.city
+						.thumbnail
+							.caption style="height:120px; overflow: auto"
+								h4= place.localization || "Sector Centro"
+								p.address= place.address
+								p.localization= place.localization

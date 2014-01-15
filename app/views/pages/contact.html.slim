@@ -1,7 +1,7 @@
 .conteudo.container.well
 	.row
 		.span6
-			= simple_form_for Contact.new, url: "/send", class: "form-horizontal" do |f|
+			= simple_form_for Contact.new, url: "/send_contact", class: "form-horizontal" do |f|
 				= f.input :name, 	input_html:{class: "span6"}
 				= f.input :email, 	input_html:{class: "span6"}
 				= f.input :country, input_html:{class: "span6"}
@@ -15,5 +15,6 @@
 				ul.icons
 					- for social_media in ["Facebook", "Twitter", "Google Plus"]
 						li style="vertical-align: center"
-							i class="icon-#{social_media.parameterize}-sign icon-2x"
-							| #{social_media}
+							= link_to social_media_url(social_media.parameterize) do
+								i class="fa fa-#{social_media.parameterize}-square"
+								|  #{social_media}

@@ -3,6 +3,7 @@
 //= require dropzone/dropzone
 
 @import "bourbon"
+@import "font-awesome"
 
 @import url("http://fonts.googleapis.com/css?family=Open+Sans")
 @import url("http://fonts.googleapis.com/css?family=Allura")
@@ -55,6 +56,28 @@ h3
 
 		&:hover
 			@include transform(scale(1.2))
+
+ul.icons
+	list-style-type: none
+	margin: 0
+
+	li
+		margin-bottom: 10px
+
+	a 
+		display: table
+
+	i.fa
+		font-size: 24px
+		display: inline-block
+		margin-right: 5px
+
+	.fa-facebook-square
+		color: #3b5998
+	.fa-twitter-square
+		color: #4099FF
+	.fa-google-plus-square
+		color: #d34836
 
 .upper-nav
 	:background-color $marrom_escuro
@@ -141,7 +164,11 @@ h3
 		:color $branco
 
 .place
-	:cursor pointer
+	// :cursor pointer
+
+	h4
+		:font-size 12px
+
 	h4, p
 		:margin 0px
 	p.localization
@@ -154,11 +181,11 @@ h3
 			:background $marrom
 			* 
 				:color $branco
-	&:hover
-		.thumbnail
-			:background $areia
-			* 
-				:color $branco
+	// &:hover
+	// 	.thumbnail
+	// 		:background $areia
+	// 		* 
+	// 			:color $branco
 
 .box-brown
 	:background $marrom_escuro

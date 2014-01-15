@@ -1,0 +1,9 @@
+markdown:
+	**name:** #{@contact.name}  
+	**email:** #{@contact.email}  
+	**country:** #{@contact.country}  
+	**subject:** #{@contact.subject}  
+	
+	**message:** 
+
+= Maruku.new(@contact.message).to_html.html_safe
